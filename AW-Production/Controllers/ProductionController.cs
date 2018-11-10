@@ -21,7 +21,7 @@ namespace AW_Production.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Route("")]
+        [Route("list")]
         public IHttpActionResult Index()
         {
             try
@@ -68,7 +68,7 @@ namespace AW_Production.Controllers
         }
 
         [HttpPost]
-        [Route("")]
+        [Route("edit")]
         public IHttpActionResult Edit(Product product)
         {
             try
@@ -85,7 +85,7 @@ namespace AW_Production.Controllers
         }
 
         [HttpPut]
-        [Route("")]
+        [Route("create")]
         public IHttpActionResult Create(Product product)
         {
             try
