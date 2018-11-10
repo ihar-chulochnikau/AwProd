@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AdventureWorks.Services.HumanResources.Department>
+
+@{
+    ViewBag.Title = "Departments";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>@Html.DisplayNameFor(model => model.GroupName)</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupName)
+        </td>
+        <td>
+            <div class="track_link_click">
+                @Html.ActionLink("View employees", "Employees", new { id = item.Id })
+            </div>
+        </td>
+    </tr>
+}
+</table>
+<script>
+    document.addEventListener('click', function (event) {
+        if (!event.target.closest('.track_link_click')) return;
+
+        event.preventDefault();
+
+        var href = event.target.href;
+        if (!href) return;
+        appInsights.trackEvent("Open employee by url " + href);
+        appInsights.trackPageView("EmployView", href);
+        window.location = href;
+    }, false);
+</script>
+
