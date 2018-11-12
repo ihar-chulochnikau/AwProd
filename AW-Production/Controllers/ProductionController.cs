@@ -68,7 +68,7 @@ namespace AW_Production.Controllers
         }
 
         [HttpPost]
-        [Route("edit")]
+        [Route("")]
         public IHttpActionResult Edit(Product product)
         {
             try
@@ -85,7 +85,7 @@ namespace AW_Production.Controllers
         }
 
         [HttpPut]
-        [Route("create")]
+        [Route("")]
         public IHttpActionResult Create(Product product)
         {
             try
